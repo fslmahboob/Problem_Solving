@@ -1,4 +1,4 @@
-"""CS50P: Problem Set 5: Just setting up my twttr
+"""CS50P - Problem Set 5: Just setting up my twttr
 Link: https://cs50.harvard.edu/python/2022/psets/5/test_twttr/
 
 In a file called twttr.py, reimplement Setting up my twttr from Problem Set 2,
