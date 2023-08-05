@@ -22,3 +22,11 @@ time.min = 59
 time.sec = 30
 
 print(f"{time.hour:02d}:{time.min:02d}:{time.sec:02d}") # good cheat sheet with examples: https://www.pythonmorsels.com/string-formatting/#cheat-sheets
+
+# SOLUTION - more efficient using a function
+
+def print_time(t):
+    """Prints a string representation of the time.
+    t: Time object
+    """
+    print(f"{t.hour:02d}:{t.min:02d}:{t.sec:02d}")
