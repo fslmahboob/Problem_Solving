@@ -30,3 +30,4 @@ def print_time(t):
     t: Time object
     """
     print(f"{t.hour:02d}:{t.min:02d}:{t.sec:02d}")
+
