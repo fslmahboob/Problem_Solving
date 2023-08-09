@@ -19,26 +19,21 @@ class Time:
     attributes: hour, minute, second
     """
 
-    def __init__(self, hour=0, minute=0, second=0):
+    def __init__(self, seconds):
         """Initializes a time object.
 
         hour: int ; seconds since midnight
         minute: int ; seconds since midnight
         second: int ;
         """
-        self.hour = hour * 3600
-        self.minute = minute * 60
-        self.second = second
-
-    def print_attributes(obj):
-        for attr in vars(obj):
-            print(attr, getattr(obj, attr))
-
-
+        self.sec_mid = seconds
 
     def __str__(self):
         """Returns a string representation of the time."""
-        return '%.2d:%.2d:%.2d' % (self.hour, self.minute, self.second)
+        minutes, second = divmod(self.sec_mid, 60)
+        hour, minute = divmod(minutes, 60)
+        time = Time(hour, minute, second)
+        return '%.2d:%.2d:%.2d' % (time.hour, time.minute, time.second)
 
     def print_time(self): # needs to be fixed
         """Prints a string representation of the time."""
@@ -81,22 +76,14 @@ class Time:
 
     def is_valid(self):
         """Checks whether a Time object satisfies the invariants."""
-        if self.hour < 0 or self.minute < 0 or self.second < 0:
+        if self.seconds < 0:
             return False
-        if self.minute >= 60 or self.second >= 60:
+        if self.seconds >= 60:
             return False
         return True
-
-
-def int_to_time(seconds):
-    """Makes a new Time object.
-
-    seconds: int seconds since midnight.
-    """
-    minutes, second = divmod(seconds, 60)
-    hour, minute = divmod(minutes, 60)
-    time = Time(hour, minute, second)
-    return time
+    def int_to_time(seconds):
+        time = Time(seconds)
+        return time
 
 
 def main():
