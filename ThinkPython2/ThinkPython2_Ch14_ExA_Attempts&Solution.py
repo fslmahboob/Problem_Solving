@@ -12,7 +12,6 @@ Skills:
 Status: Complete
 """
 
-
 # My Attempt
 
 import os
