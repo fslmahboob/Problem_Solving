@@ -1,3 +1,18 @@
+"""
+Think Python 2, page 140, section 14.4
+The os module provides a function called walk that is similar to this one but more
+versatile. As an exercise, read the documentation and use it to print
+the names of the files  in  a  given  directory  and  its  subdirectories.
+
+Skills:
+-os module
+-working with directories and files
+-reading documentation
+
+Status: Complete
+"""
+
+
 # My Attempt
 
 import os
