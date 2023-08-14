@@ -4,7 +4,7 @@ Skills:
 -OOP
 -Manipulating time objects and variables
 
-Status: Incomplete
+Status: Complete
 
 Personal notes: This is version that wasn't working. I was confusing myself with the following:
  -Conversion of just the increment and then forgetting to take into account the start time

@@ -13,7 +13,7 @@ Skills:
 -Type based dispatch (isinstance)
 -Operator overloading
 
-Status: complete
+Status: Complete
 """
 
 class Point:
