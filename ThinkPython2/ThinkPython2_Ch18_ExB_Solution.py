@@ -10,7 +10,6 @@ Status: Complete
 """
 import random
 
-
 class Card:
     """Represents a standard playing card."""
     suit_names = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
