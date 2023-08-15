@@ -8,11 +8,10 @@ Skills:
 -OOP
 -Inheritance
 
-Status: Incomplete
+Status: Complete
 """
 
 import random
-
 
 class Card:
     """Represents a standard playing card."""
@@ -37,7 +36,6 @@ class Card:
 
         # suits are the same...check ranks
         return self.rank < other.rank
-
 
 class Deck:
 
@@ -67,12 +65,15 @@ class Deck:
         for i in range(num):
             hand.add_card(self.pop_card())
 
-    def deal_hands(self, numH):
-        temp_list = []                      # create a temporary list for the hand objects
+    def deal_hands(self, numH, numC):
+        temp_list = []
         for i in range(numH):
             temp_list.append(Hand())
+        for c in range(numC):
+            for h in temp_list:
+                card = self.pop_card()
+                h.add_card(card)
         return temp_list
-
 
 class Hand(Deck):
     """Represents a hand of playing cards."""
@@ -81,27 +82,13 @@ class Hand(Deck):
         self.cards = []
         self.label = label
 
-# Testing the various methods
+# Create a deck object
 deck = Deck()
-card = deck.pop_card()
-hand1 = Hand()
-hand2 = Hand()
 
-hand1.add_card(card)
-hand1.add_card(card)
-card = deck.pop_card()
-hand1.add_card(card)
-card = deck.pop_card()
-hand2.add_card(card)
+# Deal out deck to 3 hand objects with 2 cards per hand
+list_h = deck.deal_hands(3, 2)
 
-hand1.move_cards(hand2, 2)
-
-print("Hand 1: ", hand1)
-print("Hand 2: ", hand2)
-
-list_h = deck.deal_hands(3)
-
-# Check if hand objects are created from the deal_hands method call
+# Print results by looping over each object in the list of Hand objects
 
 for i in range(len(list_h)):
     hand = list_h[i]
