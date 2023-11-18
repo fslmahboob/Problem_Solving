@@ -21,6 +21,7 @@ def CodelandUsernameValidation(strParam):
     # code goes here
     count = 0
     for i in strParam:
+        # number 3 condition
         if isinstance(i, str or int or '_'):
             count += 1
         else:
