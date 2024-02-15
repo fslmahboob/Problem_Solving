@@ -18,4 +18,5 @@ Skills:
 w = float(input("Width in  cm? "))
 l = float(input("Length in cm? "))
 a = l * w
+
 print(f"Area is {a} cm^2")
