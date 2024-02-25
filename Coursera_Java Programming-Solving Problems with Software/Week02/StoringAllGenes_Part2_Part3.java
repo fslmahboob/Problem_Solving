@@ -1,6 +1,6 @@
 
 /**
- * Storing All Genes Assignment - Part 1
+ * Storing All Genes Assignment - Parts 1,2,3
  * 
  * M. Faisal Mahboob
  * 26-02-2024
