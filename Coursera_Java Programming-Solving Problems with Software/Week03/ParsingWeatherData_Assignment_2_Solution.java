@@ -36,7 +36,8 @@ public class ParsingWeather {
     public void testColdestHourInFile(){
         FileResource fr = new FileResource();
         CSVRecord lowest = coldestHourInFile(fr.getCSVParser());
-        System.out.println("Coldest Temp. was " + lowest.get("TemperatureF") + " at " + lowest.get("TimeEST"));
+        //System.out.println("Coldest Temp. was " + lowest.get("TemperatureF") + " at " + lowest.get("TimeEST"));
+        System.out.println("Coldest Temp. was " + lowest.get("TemperatureF"));
     }
     
     public String fileWithColdestTemperature(){
@@ -69,7 +70,7 @@ public class ParsingWeather {
         String filename = fileWithColdestTemperature();
         System.out.println("Coldest day was in file " + filename);
         // Address to the location of the file; hardcoded folder name and year
-        FileResource fr = new FileResource("nc_weather/2014/" + filename);
+        FileResource fr = new FileResource("nc_weather/2013/" + filename);
         CSVRecord lowest = coldestHourInFile(fr.getCSVParser());
         System.out.println("Coldest temp on that day was " + lowest.get("TemperatureF"));
         System.out.println("All the temp. on the coldest day were: ");
@@ -89,7 +90,7 @@ public class ParsingWeather {
             if (lowestSoFar == null){
                 lowestSoFar = currentRow;
             } else {
-                if (currentRow.get("Humidity") != "N/A"){
+                if (currentRow.get("Humidity").contains("N") == false){
                     double currentHum = Double.parseDouble(currentRow.get("Humidity"));
                     double lowestHum = Double.parseDouble(lowestSoFar.get("Humidity"));
                     // Compare them
@@ -121,9 +122,10 @@ public class ParsingWeather {
             FileResource fr = new FileResource(f);
             // Use method to find lowest humidity on the selected file and return a row
             CSVRecord currentRow = lowestHumidityInFile(fr.getCSVParser());
-            if (lowestSoFar == null){
-                lowestSoFar = currentRow;
-            } else {
+            if (currentRow.get("Humidity").contains("N") == false){
+                if (lowestSoFar == null){
+                    lowestSoFar = currentRow;
+                } else {
                 // Convert strings to double
                 double currentHum = Double.parseDouble(currentRow.get("Humidity"));
                 double lowestHum = Double.parseDouble(lowestSoFar.get("Humidity"));
@@ -133,6 +135,9 @@ public class ParsingWeather {
                     lowestSoFar = currentRow;
                 }
             }
+                
+            }
+
         }
         return lowestSoFar;
     }
